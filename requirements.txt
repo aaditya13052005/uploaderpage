@@ -1,9 +1,23 @@
-flask
-gunicorn
-supabase
-pydub
-Pillow
-edge-tts
-whisper
-whisperx
-torch --extra-index-url https://download.pytorch.org/whl/cpu
+# Web framework
+flask==3.1.0
+gunicorn==22.0.0
+
+# Supabase client
+supabase==2.18.0
+httpx==0.28.0
+httpcore==1.0.8
+postgrest==1.1.1
+
+# Audio and media processing
+pydub==0.26.0
+Pillow==10.0.1
+edge-tts==0.1.8
+whisper==20230314
+
+# WhisperX and dependencies
+whisperx==0.3.1
+ctranslate2==4.6.0
+
+# PyTorch (CPU-only, compatible with WhisperX)
+torch==2.2.0 --extra-index-url https://download.pytorch.org/whl/cpu
+torchaudio==2.2.0 --extra-index-url https://download.pytorch.org/whl/cpu
