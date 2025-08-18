@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modify Story</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/modification.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Modify Story</h1>
+        <form method="POST" action="{{ url_for('modify_story', story_id=story.story_id) }}">
+            <div class="story-details">
+                <label for="title">Story Title:</label>
+                <input type="text" id="title" name="title" value="{{ story.title }}" required>
+            </div>
+
+            <h2>Slides</h2>
+            {% for slide in slides %}
+            <div class="slide-card">
+                <!-- Hidden slide ID to identify which slides are being modified -->
+                <input type="hidden" name="slide_ids[]" value="{{ slide.slide_id }}">
+
+                <label for="slide_text_{{ slide.slide_id }}">Slide {{ loop.index }} Text:</label>
+                <textarea id="slide_text_{{ slide.slide_id }}" name="slide_text_{{ slide.slide_id }}" rows="4">{{ slide.text }}</textarea>
+
+                {% if slide.video %}
+                    <div class="media-preview">
+                        <p><strong>Video Preview:</strong></p>
+                        <video controls class="preview-video">
+                            <source src="{{ slide.video }}">
+                        </video>
+                    </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+
+            <button type="submit" class="submit-btn">Save Changes</button>
+        </form>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px;">
+        <a href="{{ url_for('upload') }}">
+            <button style="padding: 12px 24px; font-size: 16px; background-color: teal; color: white; border: none; border-radius: 0px;">To Home</button>
+        </a>
+    </div>
+</body>
+</html>

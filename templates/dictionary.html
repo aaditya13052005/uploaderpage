@@ -1,0 +1,48 @@
+<!-- templates/dictionary.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Stories - Dictionary</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/dictionary.css') }}">
+</head>
+<body>
+    <h1>Your Uploaded Stories</h1>
+
+    {% if stories %}
+        <div class="story-list">
+            {% for story in stories %}
+                <div class="story-card">
+                    <h2>{{ story.title }}</h2>
+                    <button class="modify-button" data-url="{{ url_for('modify_story_dictionary', story_id=story.story_id) }}"> Add Dictionary </button>
+
+                </div>
+            {% endfor %}
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const buttons = document.querySelectorAll('.modify-button');
+                buttons.forEach(button => {
+                    button.addEventListener('click', function () {
+                        const url = this.getAttribute('data-url');
+                        window.location.href = url;
+                    });
+                });
+            });
+        </script>
+
+    {% else %}
+        <p>No stories found.</p>
+    {% endif %}
+
+    <div style="text-align: center; margin-top: 40px;">
+        <a href="{{ url_for('upload') }}">
+            <button style="padding: 12px 24px; font-size: 16px; background-color: teal; color: white; border: none; border-radius: 8px;">To Home</button>
+        </a>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/dictionary.js') }}"></script>
+
+</body>
+</html>

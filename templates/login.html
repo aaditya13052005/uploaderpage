@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Vidya Vahini</title>
+    <link rel="stylesheet" href="/static/CSS/auth.css">
+</head>
+<body>
+    <div class="auth-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <input type="text" name="username" id="username" placeholder="Username" required><br>
+            <input type="password" name="password" id="password" placeholder="Password" required><br>
+            <button type="submit">Login</button>
+        </form>
+        
+        <p>Don't have an account? <a href="{{ url_for('register') }}">Sign Up</a></p>
+        
+        <div id="flashMessages"></div>
+    </div>
+
+    <script>
+    document.getElementById('loginForm').addEventListener('submit', async function(event) {
+        event.preventDefault();
+
+        const username = document.getElementById("username").value.trim();
+        const password = document.getElementById("password").value;
+
+        if (!username || !password) {
+            displayMessage("Username and password are required.", false);
+            return;
+        }
+
+        try {
+            const response = await fetch("/login", {
+                method: "POST",
+                credentials: "same-origin",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ username, password })
+            });
+
+            const result = await response.json();
+            if (result.success) {
+                window.location.href = "/upload";
+            } else {
+                displayMessage("Login failed: " + result.message, false);
+            }
+        } catch (err) {
+            console.error(err);
+            displayMessage("An error occurred while trying to log in.", false);
+        }
+    });
+
+    function displayMessage(message, isSuccess = true) {
+        const flashDiv = document.getElementById("flashMessages");
+        flashDiv.innerHTML = `<p style="color: ${isSuccess ? 'green' : 'red'};">${message}</p>`;
+    }
+    </script>
+</body>
+</html>

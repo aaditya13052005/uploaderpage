@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Dictionary Entries for "{{ story_title }}"</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/dictionary.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Add Dictionary Entries for: {{ story_title }}</h1>
+
+        <h2>Slide Texts for Reference</h2>
+        <div class="slide-references">
+            {% for slide in slides %}
+                <div class="slide-card">
+                    <h3>Slide {{ loop.index }}</h3>
+                    <p>{{ slide.text }}</p>
+                </div>
+            {% endfor %}
+        </div>
+
+        <form id="dictionaryForm" method="POST" action="{{ url_for('submit_dictionary_entries') }}" enctype="multipart/form-data">
+            <input type="hidden" name="story_id" value="{{ story_id }}">
+
+            <h2>Add Dictionary Entries</h2>
+            <div id="dictionary-entries"></div>
+
+            <button type="button" id="add-entry">Add Another Word</button>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/dictionary.js') }}"></script>
+</body>
+</html>

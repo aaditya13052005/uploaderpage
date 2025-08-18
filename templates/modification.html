@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modify Your Stories</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/modification.css') }}">
+</head>
+<body>
+    <h1>Your Uploaded Stories</h1>
+
+    {% if stories %}
+        <div class="story-list">
+            {% for story in stories %}
+                <div class="story-card">
+                    <h2>{{ story.title }}</h2>
+                    <button class="modify-button" data-url="{{ url_for('modify_story', story_id=story.story_id) }}">Modify</button>
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- Add JS to handle Modify button -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const buttons = document.querySelectorAll('.modify-button');
+                buttons.forEach(button => {
+                    button.addEventListener('click', function () {
+                        const url = this.getAttribute('data-url');
+                        window.location.href = url;
+                    });
+                });
+            });
+        </script>
+
+    {% elif story and slides %}
+        <h2>Modifying: {{ story[0] }}</h2>
+        <form id="modificationForm" enctype="multipart/form-data">
+            {% for slide in slides %}
+                <div class="slide-card" data-slide-id="{{ slide.slide_id }}">
+                    <h3>Slide {{ loop.index }}</h3>
+                
+                    <label>Edit Slide Text:</label>
+                    <textarea name="text_{{ slide.slide_id }}" rows="4">{{ slide.text }}</textarea>
+                
+                    <label>Replace Image:</label>
+                    <input type="file" name="image_{{ slide.slide_id }}" accept="image/*">
+                
+                    <label>Replace Video:</label>
+                    <input type="file" name="video_{{ slide.slide_id }}" accept="video/*">
+                
+                    <div class="slide-actions">
+                        <button type="submit" class="save-btn">Save Changes</button>
+                        <button type="button" class="cancel-btn" onclick="window.location.href=`{{ url_for('modification') }}`">Cancel</button>
+                    </div>
+                </div>
+            {% endfor %}
+        </form>
+        <script src="{{ url_for('static', filename='js/modification.js') }}"></script>
+    {% else %}
+        <p>No stories found.</p>
+    {% endif %}
+
+    <div style="text-align: center; margin-top: 40px;">
+  <a href="{{ url_for('upload') }}">
+    <button style="padding: 12px 24px; font-size: 16px; background-color: teal; color: white; border: none; border-radius: 8px;">To Home</button>
+  </a>
+</div>
+
+
+</body>
+</html>

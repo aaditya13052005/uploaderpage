@@ -1,0 +1,365 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url('/static/pic/beautiful-forest-spring-season.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 0;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: -1;
+}
+
+/* === Header === */
+header {
+  width: 100%;
+  background: rgba(0, 153, 153, 0.65);
+  backdrop-filter: blur(12px);
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+header h1 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* === Navigation Bar === */
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+}
+
+.navbar a {
+  color: #ffffff;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 10px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.navbar a:hover {
+  background-color: rgba(0, 77, 77, 0.6);
+  transform: scale(1.05);
+}
+
+/* === Footer === */
+footer {
+  width: 100%;
+  background: rgba(0, 77, 77, 0.8);
+  color: #ffffff;
+  text-align: center;
+  padding: 1.2rem 0;
+  margin-top: auto;
+  font-size: 0.95rem;
+}
+
+/* === Container === */
+.container {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 2.5rem;
+  margin: 4rem auto;
+  width: 90%;
+  max-width: 960px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* === Form Container === */
+.form-container {
+  background: rgba(255, 255, 255, 0.55);
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  backdrop-filter: blur(25px);
+}
+
+/* === Headings === */
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 600;
+  color: #ffe3e7;
+  margin-bottom: 2.5rem;
+}
+
+/* === Form Inputs === */
+label {
+  display: block;
+  margin-top: 1.2rem;
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 0.7rem 1.2rem;
+  border-radius: 12px;
+  border: none;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.4);
+  color: #111;
+  backdrop-filter: blur(8px);
+  box-shadow:
+    inset 2px 2px 6px rgba(0, 0, 0, 0.08),
+    inset -2px -2px 6px rgba(255, 255, 255, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 6px rgba(0, 150, 150, 0.4);
+}
+
+/* === Buttons === */
+button {
+  background-color: #009999;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.6rem;
+  font-size: 1rem;
+  border-radius: 12px;
+  margin-top: 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0, 100, 100, 0.3);
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #007777;
+  transform: translateY(-2px);
+}
+
+/* === File Upload === */
+.file-upload {
+  position: relative;
+  display: inline-block;
+  margin-top: 1.2rem;
+}
+
+.file-upload input[type="file"] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.file-upload-label {
+  display: inline-block;
+  background: linear-gradient(135deg, #00cccc, #007777);
+  color: #fff;
+  padding: 0.8rem 1.8rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 0 6px 18px rgba(0, 100, 100, 0.3);
+  transition: all 0.35s ease;
+  text-align: center;
+}
+
+.file-upload-label:hover {
+  background: linear-gradient(135deg, #009999, #005f5f);
+  transform: scale(1.05);
+}
+
+/* === Flashcard Layout === */
+.story-card {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 18px;
+  padding: 1.5rem;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+  overflow: hidden;
+  width: 100%;
+  max-width: none;
+}
+
+.story-card:hover {
+  transform: scale(1.015);
+}
+
+.story-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #004d4d;
+  margin-bottom: 0.4rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.story-content {
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #222;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* === Flashcard Row === */
+.flashcard-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+}
+
+/* === Slide Flashcard === */
+.story-card {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 18px;
+  padding: 1.5rem;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+  overflow: hidden;          /* Prevent content overflow */
+  width: 100%;               /* Make card take full column width */
+  height: auto;              /* Allow height to grow with content */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-sizing: border-box;    /* Include padding/border in width/height */
+}
+
+.slide-card h3 {
+  margin-top: 0;
+  font-size: 1.3rem;
+  color: #004d4d;
+}
+
+.slide-card p {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.slide-card textarea {
+  width: 95%;
+  max-width: 800px;
+  padding: 0.6rem 1rem;
+  font-size: 0.95rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.4);
+  border: none;
+  color: #111;
+  backdrop-filter: blur(6px);
+  resize: vertical;
+  min-height: 90px;
+}
+
+.slide-card input[type="file"] {
+  width: 90%;
+  max-width: 500px;
+  font-size: 0.95rem;
+}
+
+.slide-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.slide-actions button {
+  padding: 0.6rem 1.2rem;
+  font-size: 0.95rem;
+  background-color: #009999;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.slide-actions button:hover {
+  background-color: #006d6d;
+  transform: translateY(-2px);
+}
+
+/* Centered Label for Slide Fields */
+.slide-card label {
+  width: 100%;
+  text-align: center;
+  color: #003333;
+  font-weight: 500;
+}
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+  .container,
+  .form-container {
+    padding: 1.5rem;
+  }
+
+  .story-card {
+    width: 90%;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  .slide-card {
+    padding: 1.2rem;
+  }
+
+  .flashcard-row {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* === Story Grid: Exactly 5 Cards per Row === */
+.story-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+  box-sizing: border-box;
+}
+

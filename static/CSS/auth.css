@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: url('/static/pic/door-stretching-into-fantasy-world.jpg') center center / cover no-repeat fixed;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Dark overlay */
+body::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 0;
+}
+
+/* Glassmorphic Container */
+.auth-container {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: 24px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+  padding: 2.5rem 2.8rem;
+  width: 360px;
+  text-align: center;
+  animation: fadeInUp 0.8s ease, floaty 6s ease-in-out infinite;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+/* Heading */
+.auth-container h2 {
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+  font-weight: 600;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+}
+
+/* Input Fields */
+input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 1rem;
+  backdrop-filter: blur(6px);
+  box-shadow: inset 2px 2px 4px rgba(255, 255, 255, 0.1), inset -2px -2px 4px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+input:focus {
+  outline: none;
+  transform: scale(1.02);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.35);
+}
+
+/* Buttons */
+button {
+  width: 100%;
+  padding: 0.75rem;
+  background: linear-gradient(135deg, #3AA6B9, #1f7284);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #4fd2f3, #247a8f);
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 0 12px rgba(79, 210, 243, 0.6);
+}
+
+/* Flash Messages */
+.flash {
+  color: #ff9999;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+/* Links */
+p {
+  margin-top: 1rem;
+  color: #e6e6e6;
+}
+
+a {
+  color: #aad8ff;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #ffffff;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}

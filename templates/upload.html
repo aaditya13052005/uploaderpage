@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Upload Story | Vidya Vahini</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='CSS/style.css') }}" />
+  <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+</head>
+<body>
+  <!-- Splash Screen -->
+  <div id="splash-screen">
+    <img src="{{ url_for('static', filename='pic/EmblemVV.png') }}" alt="Logo" class="splash-logo">
+  </div>
+
+  <!-- Top Logos -->
+  <div class="top-logos">
+    <img src="{{ url_for('static', filename='pic/EmblemVV.png') }}" class="top-logo right" alt="Logo VV">
+    <img src="{{ url_for('static', filename='pic/EmblemIE.png') }}" class="top-logo left" alt="Logo IE">
+  </div>
+
+  <!-- Main Content -->
+  <div class="form-container" id="main-content" style="display: none;">
+    <h1>📚 Story Uploader</h1>
+
+    <div class="action-buttons">
+      <button type="button" id="uploadButton">Upload New Story</button>
+
+      <!-- Your Stories button -->
+      <a href="{{ url_for('modification') }}">
+        <button type="button" id="yourStoriesButton">Your Stories</button>
+      </a>
+
+      <!-- New Dictionary Upload button -->
+      <a href="{{ url_for('dictionary') }}" style="margin-left: 10px;">
+        <button type="button" id="dictionaryButton">Add Dictionary Words</button>
+      </a>
+    </div>
+
+    <!-- Upload Form -->
+    <form id="storyForm" style="display: none;" method="POST" action="/upload_story" enctype="multipart/form-data">
+      <label for="title">Story Title:</label>
+      <input type="text" id="title" name="title" required />
+      <input type="hidden" id="slideCount" name="slide_count" value="0" />
+      <div id="slidesContainer"></div>
+      <button type="button" id="addSlideBtn" class="add-slide-btn">Add Slide</button>
+      <button type="submit" class="submit-btn">Submit Story</button>
+    </form>
+
+    <!-- Your Stories List -->
+    <div id="yourStoriesSection" style="display: none;">
+      <h2>📜 Your Uploaded Stories</h2>
+      <ul id="yourStoriesList"></ul>
+    </div>
+
+    <!-- Modify Story Form (populated via JS) -->
+    <form id="modifyStoryForm" style="display: none;" method="POST" action="/modify_story" enctype="multipart/form-data">
+      <input type="hidden" id="modStoryId" name="story_id" />
+      <label for="modTitle">Story Title:</label>
+      <input type="text" id="modTitle" name="title" readonly />
+      <div id="modSlidesContainer"></div>
+      <button type="submit" class="submit-btn">Save Changes</button>
+    </form>
+  </div>
+
+  <!-- Bottom Mascots -->
+  <div class="bottom-mascots">
+    <img src="{{ url_for('static', filename='pic/Prem-There you go-Pose.png') }}" class="mascot left" alt="Prem Mascot">
+    <img src="{{ url_for('static', filename='pic/Shanthi-There you go-Pose-Flipped.png') }}" class="mascot right" alt="Shanthi Mascot">
+  </div>
+
+  <!-- Splash Screen Transition -->
+  <script>
+    window.addEventListener("load", () => {
+      const splash = document.getElementById("splash-screen");
+      const main = document.getElementById("main-content");
+      setTimeout(() => {
+        splash.style.opacity = 0;
+        splash.style.pointerEvents = "none";
+        main.style.display = "block";
+        main.style.opacity = 0;
+        setTimeout(() => {
+          main.style.transition = "opacity 0.8s ease";
+          main.style.opacity = 1;
+        }, 200);
+      }, 2200);
+    });
+  </script>
+</body>
+</html>
