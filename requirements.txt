@@ -9,7 +9,7 @@ httpcore==1.0.8
 postgrest==1.1.1
 
 # Audio and media processing
-pydub==0.26.0
+pydub==0.25.1
 Pillow==10.0.1
 edge-tts==0.1.8
 whisper==20230314
