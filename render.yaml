@@ -11,11 +11,12 @@ services:
     envVars:
       - key: PYTHON_VERSION
         value: 3.10.14
-   # Force Python 3.11
+  
       - key: SUPABASE_URL
         sync: false     # You’ll set these in Render dashboard
       - key: SUPABASE_KEY
         sync: false
+
 
 
 
