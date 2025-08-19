@@ -2,9 +2,7 @@
 flask==3.0.3
 flask-cors==4.0.0
 
-# Database
-mysql-connector-python==9.0.0
-sqlalchemy==2.0.32
+
 
 # Supabase
 supabase==2.3.4
