@@ -14,9 +14,9 @@ gTTS==2.5.1
 # Use GitHub repo (more reliable than PyPI release)
 git+https://github.com/openai/whisper.git
 
-# Torch (CPU only, safe for Render free tier)
-torch==2.3.1
-torchaudio==2.3.1
+# Torch (CPU only, works with Python 3.10)
+torch==2.2.2
+torchaudio==2.2.2
 
 # Audio processing
 pydub==0.25.1
