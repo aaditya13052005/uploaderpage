@@ -7,7 +7,8 @@ supabase>=2.3.4
 
 
 # Audio / ML
-openai-whisper==20231117
+whisper==20230314
+
 gTTS==2.5.1
 soundfile==0.12.1
 numpy==1.26.4
