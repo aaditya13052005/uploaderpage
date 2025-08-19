@@ -2,8 +2,6 @@
 flask==3.0.3
 flask-cors==4.0.0
 
-
-
 # Supabase
 supabase==2.3.4
 postgrest==0.15.0
@@ -14,7 +12,8 @@ storage3==0.7.5
 # TTS & Speech
 gTTS==2.5.1
 openai-whisper==20231117
-
+torch==2.3.1
+torchaudio==2.3.1
 
 # Audio processing
 pydub==0.25.1
