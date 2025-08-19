@@ -6,7 +6,8 @@ flask-cors==4.0.0
 supabase==2.3.4
 postgrest==0.15.0
 gotrue==2.5.0
-realtime==2.0.2
+realtime<2.0.0,>=1.0.0
+
 storage3==0.7.5
 
 # TTS & Speech
