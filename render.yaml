@@ -3,9 +3,9 @@ services:
     name: uploaderpage
     env: python
     plan: free
- buildCommand: |
-  pip install --upgrade pip setuptools<81 wheel
-  pip install -r requirements.txt
+   buildCommand: |
+      pip install --upgrade pip setuptools wheel
+      pip install --force-reinstall -r requirements.txt
 
     startCommand: gunicorn app:app
     envVars:
@@ -16,6 +16,7 @@ services:
         sync: false     # You’ll set these in Render dashboard
       - key: SUPABASE_KEY
         sync: false
+
 
 
 
