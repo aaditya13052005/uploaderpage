@@ -7,7 +7,8 @@ supabase>=2.3.4
 
 
 # Audio / ML
-whisper==20230314
+whisper==1.1.10
+
 
 gTTS==2.5.1
 soundfile==0.12.1
