@@ -3,7 +3,8 @@ gunicorn==21.2.0
 
 
 # Supabase
-supabase-py==2.3.4
+supabase>=2.3.4
+
 
 # Audio / ML
 openai-whisper==20231117
