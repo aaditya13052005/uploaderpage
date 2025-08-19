@@ -16,7 +16,8 @@ git+https://github.com/openai/whisper.git
 
 # Torch (CPU only, works with Python 3.10)
 torch==2.5.1
-torchaudio==2.2.2
+torchaudio>=2.6.0
+
 
 # Audio processing
 pydub==0.25.1
