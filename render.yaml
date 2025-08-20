@@ -3,19 +3,18 @@ services:
     name: uploaderpage
     env: python
     plan: free
-   buildCommand: |
+    buildCommand: |
       pip install --upgrade pip setuptools wheel
       pip install --force-reinstall -r requirements.txt
-
     startCommand: gunicorn app:app
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.9
-  
       - key: SUPABASE_URL
-        sync: false     # You’ll set these in Render dashboard
+        sync: false
       - key: SUPABASE_KEY
         sync: false
+
 
 
 
