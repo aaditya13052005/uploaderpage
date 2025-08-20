@@ -1,5 +1,5 @@
 import whisper
-import whisperx
+
 import torch
 import os
 import json
@@ -82,3 +82,4 @@ def generate_timestamps(
     except Exception as e:
         logging.error(f"[❌ ERROR] Whisper timestamp generation failed: {e}")
         return None
+
