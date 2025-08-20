@@ -9,13 +9,11 @@ services:
     startCommand: gunicorn app:app
     envVars:
       - key: PYTHON_VERSION
-        value: 3.11.8
+        value: 3.11.11
       - key: SUPABASE_URL
         sync: false
       - key: SUPABASE_KEY
         sync: false
-
-
 
 
 
