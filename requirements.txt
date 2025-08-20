@@ -21,6 +21,7 @@ storage3==0.7.5
 gTTS==2.5.1
 # Use GitHub repo (more reliable than PyPI release)
 git+https://github.com/openai/whisper.git
+git+https://github.com/m-bain/whisperx.git
 
 # Torch (CPU only, works with Python 3.10)
 torch==2.8.0
